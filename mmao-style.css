@@ -1,0 +1,121 @@
+#mmao-cta-greeting {
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  bottom: 2.5rem;
+  right: 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(-15deg, darkgreen, green, darkgreen);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+#mmao-cta-greeting {
+  font-size: 12px;
+  color: #f5f5f5;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 1;
+  line-height: 1;
+}
+#mmao-cta-greeting svg {
+  fill: #f5f5f5;
+}
+
+#mmao-cta-greeting:after {
+  content: "";
+  box-sizing: border-box;
+  width: 100%;
+  height: 10px;
+  position: absolute;
+  left: 0;
+  bottom: -1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  filter: blur(0.5rem);
+}
+
+#mmao-close {
+  box-sizing: border-box;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  background-color: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 0 0 10px 10px;
+}
+
+#mmao-cta {
+  box-sizing: border-box;
+  position: fixed;
+  right: 1rem;
+  bottom: 2.5rem;
+  width: 100px;
+  background-color: silver;
+  padding: 2.5rem 1rem 1.5rem 1rem;
+  border-radius: 10px;
+  background: linear-gradient(to bottom, green, darkgreen, rgb(4, 75, 4));
+  transform: translateY(calc(100% + 2.5rem));
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+}
+#mmao-cta:after {
+  box-sizing: border-box;
+  content: "";
+  width: 100%;
+  height: 10px;
+  position: absolute;
+  left: 0;
+  bottom: -1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  filter: blur(0.5rem);
+}
+#mmao-cta.active {
+  box-sizing: border-box;
+  transform: translateY(0);
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+}
+#mmao-cta ul {
+  list-style: none;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+#mmao-cta ul li {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px;
+}
+#mmao-cta ul li a {
+  box-sizing: border-box;
+}
+
+#mmao-cta ul li a svg {
+  fill: #f5f5f5;
+  width: 28px;
+}
+#mmao-cta ul li a {
+  color: #f5f5f5;
+}
