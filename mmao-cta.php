@@ -11,7 +11,7 @@ defined('ABSPATH') || die('No script kiddies please!');
 function mmao_cta()
 {
 ?>
-    <div id="mmao-cta-greeting"><svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" style="transform: ;msFilter:;">
+    <div id="mmao-cta-greeting" class="sleep"><svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" style="transform: ;msFilter:;">
             <path d="M16 14h.5c.827 0 1.5-.673 1.5-1.5v-9c0-.827-.673-1.5-1.5-1.5h-13C2.673 2 2 2.673 2 3.5V18l5.333-4H16zm-9.333-2L4 14V4h12v8H6.667z"></path>
             <path d="M20.5 8H20v6.001c0 1.1-.893 1.993-1.99 1.999H8v.5c0 .827.673 1.5 1.5 1.5h7.167L22 22V9.5c0-.827-.673-1.5-1.5-1.5z"></path>
         </svg><span>Staff</span></div>
@@ -33,7 +33,7 @@ function mmao_cta_items()
     if (carbon_get_theme_option('mmao_enable_cta_floating')) {
         $mmao_cta = carbon_get_theme_option('mmao_cta');
         if ($mmao_cta) {
-            $pass = array('a', 'li', 'svg');
+            $pass = array('a', 'li', 'svg', 'span');
             foreach ($mmao_cta as $cta) {
                 $cta_type = $cta['mmao_cta_type'];
 
@@ -42,19 +42,19 @@ function mmao_cta_items()
                     $cta_link = $cta['mmao_cta_whatsapp_number'];
                     $mmao_cta_whatsapp_text = $cta['mmao_cta_whatsapp_text'];
                     $mmao_cta_whatsapp_text = str_replace(' ', '%20', $mmao_cta_whatsapp_text);
-                    $cta_link = '<li><a href="https://api.whatsapp.com/send?phone=' . $cta_link . '&text=' . $mmao_cta_whatsapp_text . '" target="_blank">' . $icon . '</a></li>';
+                    $cta_link = '<li><a href="https://api.whatsapp.com/send?phone=' . $cta_link . '&text=' . $mmao_cta_whatsapp_text . '" target="_blank">' . $icon . '<span>Whatsapp</span></a></li>';
                 } elseif ('telegram' === $cta_type) {
                     $icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="transform: ;msFilter:;"><path d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"></path></svg>';
                     $cta_link = $cta['mmao_cta_telegram_username'];
-                    $cta_link = '<li><a href="https://t.me/' . $cta_link . '" target="_blank">' . $icon . '</a></li>';
+                    $cta_link = '<li><a href="https://t.me/' . $cta_link . '" target="_blank">' . $icon . '<span>Telegram</span></a></li>';
                 } elseif ('email' === $cta_type) {
                     $icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="transform: ;msFilter:;"><path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 0 0 1.228 0L20 9.044 20.002 18H4z"></path></svg>';
                     $cta_link = $cta['mmao_cta_email'];
-                    $cta_link = '<li><a href="mailto:' . $cta_link . '">' . $icon . '</a></li>';
+                    $cta_link = '<li><a href="mailto:' . $cta_link . '">' . $icon . '<span>Email</span></a></li>';
                 } elseif ('phone' === $cta_type) {
                     $icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="transform: ;msFilter:;"><path d="M17.707 12.293a.999.999 0 0 0-1.414 0l-1.594 1.594c-.739-.22-2.118-.72-2.992-1.594s-1.374-2.253-1.594-2.992l1.594-1.594a.999.999 0 0 0 0-1.414l-4-4a.999.999 0 0 0-1.414 0L3.581 5.005c-.38.38-.594.902-.586 1.435.023 1.424.4 6.37 4.298 10.268s8.844 4.274 10.269 4.298h.028c.528 0 1.027-.208 1.405-.586l2.712-2.712a.999.999 0 0 0 0-1.414l-4-4.001zm-.127 6.712c-1.248-.021-5.518-.356-8.873-3.712-3.366-3.366-3.692-7.651-3.712-8.874L7 4.414 9.586 7 8.293 8.293a1 1 0 0 0-.272.912c.024.115.611 2.842 2.271 4.502s4.387 2.247 4.502 2.271a.991.991 0 0 0 .912-.271L17 14.414 19.586 17l-2.006 2.005z"></path></svg>';
                     $cta_link = $cta['mmao_cta_phone_number'];
-                    $cta_link = '<li><a href="tel:+' . $cta_link . '">' . $icon . '</a></li>';
+                    $cta_link = '<li><a href="tel:+' . $cta_link . '">' . $icon . '<span>Phone</span></a></li>';
                 }
                 echo wp_kses($cta_link, mmao($pass));
             }

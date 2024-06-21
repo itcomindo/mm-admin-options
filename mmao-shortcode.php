@@ -243,7 +243,6 @@ function mmao_auto_featured_image()
 /**
  * Get Auto Featured Image
  */
-
 function mmao_image_shorcode()
 {
     $mmao_image_shortcode = carbon_get_theme_option('mmao_enable_shortcode_image');
@@ -260,9 +259,25 @@ function mmao_image_shorcode()
             $random_file = $files[array_rand($files)];
             $file_name   = basename($random_file);
             $image = $doc_url . '/' . $file_name;
-            $image = '<img class="mmao-find-this mmao-auto-image" src="' . $image . '" title="' . get_the_title() . '" alt="' . get_the_title() . '" decoding="async">';
-            return $image;
+
+            // Array alternatif alt dan title
+            $title_options = array(
+                get_the_title(),
+                'photo',
+                'gambar',
+                'screenshot',
+                'photo ' . get_the_title(),
+                'gambar ' . get_the_title()
+            );
+
+            // Pilih alt dan title secara acak
+            $random_title_alt = $title_options[array_rand($title_options)];
+
+            $image_html = '<img class="mmao-find-this mmao-auto-image" src="' . $image . '" title="' . $random_title_alt . '" alt="' . $random_title_alt . '" decoding="async">';
+            return $image_html;
         }
     }
+
+    return '';
 }
 add_shortcode('image', 'mmao_image_shorcode');

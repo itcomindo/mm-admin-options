@@ -15,6 +15,11 @@
   background: linear-gradient(-15deg, darkgreen, green, darkgreen);
   cursor: pointer;
   box-sizing: border-box;
+  transform: translateY(0);
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+}
+#mmao-cta-greeting.sleep {
+  transform: translateY(calc(100% + 2.5rem));
 }
 #mmao-cta-greeting {
   font-size: 12px;
@@ -118,4 +123,11 @@
 }
 #mmao-cta ul li a {
   color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+#mmao-cta ul li a span {
+  font-size: 12px;
 }

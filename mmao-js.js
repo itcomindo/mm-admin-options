@@ -6,17 +6,24 @@ window.addEventListener('DOMContentLoaded', (event) => {
         // launch CTA.
         // ##############################
         function mmaoLaunchCTA() {
+
+            setTimeout(function () {
+                jQuery('#mmao-cta-greeting').removeClass('sleep');
+            }, 1000);
+
+
             jQuery('#mmao-cta-greeting').on('click', function () {
-                jQuery(this).slideUp(300);
+                jQuery(this).slideUp(300).addClass('sleep');
                 jQuery('#mmao-cta').addClass('active');
 
                 jQuery('#mmao-close').on('click', function () {
                     jQuery('#mmao-cta').removeClass('active');
                     jQuery('#mmao-cta-greeting').slideDown(300);
+                    setTimeout(function () {
+                        jQuery('#mmao-cta-greeting').removeClass('sleep');
+                    }, 1000);
+
                 });
-
-
-
             });
         }
         mmaoLaunchCTA();
