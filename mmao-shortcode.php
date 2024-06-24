@@ -249,7 +249,20 @@ function mmao_image_shorcode()
 
     if ($mmao_image_shortcode) {
         $upload_dir = wp_upload_dir();
-        $dirname   = carbon_get_theme_option('mmao_shortcode_image_directory');
+
+
+        $service = get_field('service');
+        if ('Mesin Cuci' === $service) {
+            $dirname = 'mesin-cuci';
+        } elseif ('Kompor' === $service) {
+            $dirname = 'kompor';
+        } else {
+            $dirname   = carbon_get_theme_option('mmao_shortcode_image_directory');
+            $dirname = $dirname;
+        }
+
+
+
         $doc_path  = $upload_dir['basedir'] . '/' . $dirname;
         $doc_url   = $upload_dir['baseurl'] . '/' . $dirname;
 

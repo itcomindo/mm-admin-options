@@ -98,7 +98,6 @@ function mmao_plugin_options_fields()
                 <% } %>
             '),
 
-
         Field::make('separator', 'mmao_fim_options', 'Image Options')
             ->set_classes('mmao-sep'),
 

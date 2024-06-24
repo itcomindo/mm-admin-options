@@ -23,5 +23,12 @@ function mmao_options_field()
         ->add_fields(array(
             ...mmao_website_data_fields(),
         ));
+
+
+    Container::make('theme_options', 'Testimonials')
+        ->set_page_parent($main_container)
+        ->add_fields(array(
+            ...mmao_testimonial_options(),
+        ));
 }
 add_action('carbon_fields_register_fields', 'mmao_options_field');

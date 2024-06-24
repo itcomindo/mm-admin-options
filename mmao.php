@@ -150,6 +150,7 @@ add_action('plugins_loaded', 'mmao_cf_loader');
 
 require_once MMAO_PATH . 'mmao-options.php';
 require_once MMAO_PATH . 'mmao-plugin-options.php';
+require_once MMAO_PATH . 'mmao-testimonial-options.php';
 require_once MMAO_PATH . 'mmao-website-data.php';
 require_once MMAO_PATH . 'mmao-shortcode.php';
 require_once MMAO_PATH . 'mmao-cta.php';
